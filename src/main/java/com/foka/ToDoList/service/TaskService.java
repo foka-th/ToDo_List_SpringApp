@@ -3,15 +3,18 @@ package com.foka.ToDoList.service;
 import com.foka.ToDoList.model.Task;
 import com.foka.ToDoList.model.TaskStatus;
 import com.foka.ToDoList.repository.TaskRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     public Task createTask(Task task) {
         if (task.getStatus() == null) {

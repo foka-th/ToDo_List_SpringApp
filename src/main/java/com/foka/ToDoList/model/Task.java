@@ -1,13 +1,9 @@
 package com.foka.ToDoList.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "tasks")
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
