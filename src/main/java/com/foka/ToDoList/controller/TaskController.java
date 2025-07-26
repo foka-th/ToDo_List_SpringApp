@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "task")
+@RequestMapping("/api/tasks")
 public class TaskController {
     private final TaskService taskService;
 
@@ -33,6 +33,11 @@ public class TaskController {
             return ResponseEntity.ok(taskService.getTasksByStatus(status));
         }
         return ResponseEntity.ok(taskService.getAllTasks());
+    }
+
+    @GetMapping("/{id}")
+    public Task getTasksById(@PathVariable Long id) {
+        return taskService.getTasksById(id);
     }
 
     @PutMapping("/{id}")

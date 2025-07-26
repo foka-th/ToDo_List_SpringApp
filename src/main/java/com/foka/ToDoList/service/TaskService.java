@@ -31,6 +31,10 @@ public class TaskService {
         return taskRepository.findByStatus(status);
     }
 
+    public Task getTasksById(Long id) {
+        return taskRepository.findById(Long.valueOf(id)).orElse(null);
+    }
+
     public Task updateTask(Long id, Task taskDetails) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tâche non trouvée"));
